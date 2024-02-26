@@ -2,7 +2,8 @@
   {
     "Id": 1,
     "Availability": "Part Time",
-    "EarnTarget": "More than 30hours a week",
-    "Hours": "Less than $500 per month"
+    "Hours": "Less than 30hours a week",
+    "EarnTarget": "Less than $500 per month"
+
   }
 ]
