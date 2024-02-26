@@ -7,7 +7,7 @@ namespace AdvancedTask.Pages
 {
     public class LanguagePage : CommonDriver
     {
-            private IWebElement AddNewButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
+            private IWebElement AddNewButton => driver.FindElement(By.XPath("//div[@class='four wide column' and h3='Languages']/following-sibling::div[@class='twelve wide column scrollTable']//div[@class=\"ui teal button\"]"));
             private IWebElement AddLanguageTextbox => driver.FindElement(By.XPath("//input[@name='name']"));
             private IWebElement LanguageLevelDropdown => driver.FindElement(By.XPath("//select[@name='level']"));
             private IWebElement AddButton => driver.FindElement(By.XPath("//input[@value='Add']"));

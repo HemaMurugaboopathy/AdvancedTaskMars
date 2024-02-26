@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 namespace AdvancedTask.Tests
 {
     [TestFixture]
-    public class profile_Tests: CommonDriver
+    public class Profile_Tests: CommonDriver
     {
         LoginPage loginPageObj = new LoginPage();
         ProfilePage profilePageObj = new ProfilePage();
 
-        public profile_Tests()
+        public Profile_Tests()
         {
             loginPageObj = new LoginPage();
             profilePageObj = new ProfilePage();
@@ -30,18 +30,26 @@ namespace AdvancedTask.Tests
 
             //Login page object initialization and definition
             loginPageObj.LoginActions();
-
-            ////Education page object initialization and deifinition
-            //profilePageObj.Profile(profileData profileData);
+       
         }
 
-        [Test, Description("Adding profile details")]
-        public void Profile(int id)
+        [Test, Order(1), Description("Adding profile details")]
+        [TestCase(1)]
+        public void Add_Profile(int id)
         {
             profileData profileData = ProfileDataHelper
                .ReadProfileData(@"addProfileData.json")
                .FirstOrDefault(x => x.Id == id);
-            profilePageObj.Profile(profileData);
+            profilePageObj.Add_Profile(profileData);
+
+            // Get the actual message from the profilePageObj
+            //string actualMessage = profilePageObj.getMessage();
+
+           
+        }
+        public void ProfileTearDown()
+        {
+            driver.Quit();
         }
 
     }
