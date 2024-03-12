@@ -13,7 +13,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace AdvancedTask.Pages
 {
-    public class ProfilePage: CommonDriver
+    public class ProfilePage : CommonDriver
     {
         //Find Element by ID
         private IWebElement availabilityEdit => driver.FindElement(By.XPath("//div[@class=\"extra content\"]//div[@class=\"ui list\"]//div[2]//i[@class=\"right floated outline small write icon\"]"));
@@ -23,11 +23,9 @@ namespace AdvancedTask.Pages
         private IWebElement earnTargetEdit => driver.FindElement(By.XPath("//div[@class=\"extra content\"]/div[@class=\"ui list\"]/div[4]//i[@class='right floated outline small write icon']"));
         private IWebElement earnTargetOption => driver.FindElement(By.XPath("//div[@class=\"right floated content\"]//select[@class='ui right labeled dropdown' and @name='availabiltyTarget']"));
 
-        private IWebElement SuccessMessageElement => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-        
         public void Add_Profile(profileData profileData)
-        {
-            Thread.Sleep(4000);
+        { 
+            Wait.WaitToBeClickable(driver, "XPath", "//div[@class=\"extra content\"]//div[@class=\"ui list\"]//div[2]//i[@class=\"right floated outline small write icon\"]", 8);
             // Click the edit option in profile availability
             availabilityEdit.Click();
 
@@ -36,9 +34,8 @@ namespace AdvancedTask.Pages
 
             // Select the option by its value
             selectLevelOption.SelectByText(profileData.Availability);
-            
 
-            Thread.Sleep(5000);
+            Wait.WaitToBeClickable(driver, "XPath", "//div[@class=\"extra content\"]/div[@class=\"ui list\"]/div[3]//i[@class='right floated outline small write icon']", 8);
             // Click the edit option in profile availability
             hoursEdit.Click();
 
@@ -46,7 +43,7 @@ namespace AdvancedTask.Pages
             SelectElement selectHoursOption = new SelectElement(hoursOption);
             selectHoursOption.SelectByText(profileData.Hours);
 
-            Thread.Sleep(3000);
+            Wait.WaitToBeClickable(driver, "XPath", "//div[@class=\"extra content\"]/div[@class=\"ui list\"]/div[4]//i[@class='right floated outline small write icon']", 8);
             // Click the edit option in profile earn target
             earnTargetEdit.Click();
 
@@ -54,8 +51,6 @@ namespace AdvancedTask.Pages
             SelectElement selectEarnTargetOption = new SelectElement(earnTargetOption);
             selectEarnTargetOption.SelectByText(profileData.EarnTarget);
         }
-
-        
-        
     }
 }
+

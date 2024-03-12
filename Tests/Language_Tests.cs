@@ -4,12 +4,6 @@ using AdvancedTask.Utilities;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
-using OpenQA.Selenium.DevTools.V119.Browser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedTask.Tests
 {
@@ -56,7 +50,6 @@ namespace AdvancedTask.Tests
         [OneTimeTearDown]
         public void ExtentClose()
         {
-            // Flush the ExtentReports instance to finalize and write all information to the report files
             extent.Flush();
         }
 
@@ -69,7 +62,6 @@ namespace AdvancedTask.Tests
             // Call the Delete_All method on the languagePageObj to perform the deletion operation
             languagePageObj.Delete_All_Records();
 
-            // Log a pass status for the test and add a corresponding log message
             test.Log(Status.Pass, "Delete all language passed");
         }
 
@@ -98,7 +90,6 @@ namespace AdvancedTask.Tests
             Assert.That(newLanguage == languageData.Language, "Actual language and expected language do not match");
             Assert.That(newLanguageLevel == languageData.LanguageLevel, "Actual languageLevel and expected languageLevel do not match");
             
-            // Log a pass status for the test and add a corresponding log message
             test.Log(Status.Info, "Add language started");
         }
         
@@ -119,9 +110,7 @@ namespace AdvancedTask.Tests
 
             languagePageObj.Add_Language(languageData);
 
-            // Arrange
             string actualMessage = languagePageObj.getMessage();
-
             string expectedMessagePattern = @".* has been added to your languages.*";
 
             // Perform the assertion using a regular expression
@@ -129,8 +118,6 @@ namespace AdvancedTask.Tests
 
             // Log a pass status for the test and add a corresponding log message
             test.Log(Status.Fail, "Language failed: ");
-            Console.WriteLine(actualMessage);
-            CaptureScreenshot("SpecialCharactersFailed");
         }
 
         [Test, Order(4), Description("This test is adding a new Language with empty text box")]
@@ -140,10 +127,8 @@ namespace AdvancedTask.Tests
             // Capture a screenshot with a specified name 
             CaptureScreenshot("ScreenshotName");
 
-            // Create a new test and log the test start information
             test = extent.CreateTest("AddLanguageWithEmptyTextbox").Info("Test Started");
-
-            
+           
             // Read education data from the specified JSON file and retrieve the first item with a matching Id
             LanguageData languageData = LanguageDataHelper
                .ReadLanguageData(@"addLanguageData.json")
@@ -151,12 +136,10 @@ namespace AdvancedTask.Tests
 
             languagePageObj.Add_Language(languageData);
 
-            // Arrange
             string actualMessage = languagePageObj.getMessage();
             string expectedMessage = "Please enter language and level"; // Update this to the expected message
             Assert.That(actualMessage, Is.EqualTo(expectedMessage), $"Actual message '{actualMessage}' does not match expected message '{expectedMessage}'");
 
-            // Log a pass status for the test and add a corresponding log message
             test.Log(Status.Fail, "Language failed: ");
 
             CaptureScreenshot("EmptyTextBoxFailed");
@@ -178,16 +161,14 @@ namespace AdvancedTask.Tests
 
             languagePageObj.Add_Language(languageData);
 
-            // Arrange
             string actualMessage = languagePageObj.getMessage();
             string expectedMessagePattern = @".* has been added to your languages.*";
 
             // Perform the assertion using a regular expression
             Assert.That(actualMessage, Does.Match(expectedMessagePattern), $"Actual message '{actualMessage}' does not match the expected pattern '{expectedMessagePattern}'");
 
-            // Log a pass status for the test and add a corresponding log message
             test.Log(Status.Fail, "Education failed: ");
-            Console.WriteLine(actualMessage);
+
             CaptureScreenshot("MoreCharactersFailed");
         }
         [Test, Order(6), Description("This is editing an existing language")]
@@ -211,8 +192,7 @@ namespace AdvancedTask.Tests
             string updatedLanguageLevel = languagePageObj.getLanguageLevel(newLanguageData.LanguageLevel);
             
             Assert.That(updatedLanguage == newLanguageData.Language, "Actual language and expected language does not match");
-            Assert.That(updatedLanguageLevel == newLanguageData.LanguageLevel, "Actual language level and expected language level does not match");
-          
+            Assert.That(updatedLanguageLevel == newLanguageData.LanguageLevel, "Actual language level and expected language level does not match");        
         }
 
         [Test, Order(7), Description("Cancel when editing")]
@@ -225,7 +205,6 @@ namespace AdvancedTask.Tests
             string cancelLanguage = languagePageObj.getCancel();
             Assert.That(string.IsNullOrEmpty(cancelLanguage), Is.True, "Cancelled successfully");
 
-            // Log a pass status for the test and add a corresponding log message
             test.Log(Status.Info, "Cancelled Successfully: ");
         }
 
@@ -243,10 +222,13 @@ namespace AdvancedTask.Tests
 
             languagePageObj.Delete_Language(languageData);
 
+            string actualMessage = languagePageObj.getMessage();
+            string expectedMessagePattern = @".* has been deleted from your languages.*";
+
+            // Perform the assertion using a regular expression
+            Assert.That(actualMessage, Does.Match(expectedMessagePattern), $"Actual message '{actualMessage}' does not match the expected pattern '{expectedMessagePattern}'");
             // Create a new test and log the test start information
             test = extent.CreateTest("DeleteLanguage").Info("Test Started");
-            
-            // Log a pass status for the test and add a corresponding log message
             test.Log(Status.Info, "Delete language started");
         }
 
