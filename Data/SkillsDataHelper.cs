@@ -1,17 +1,22 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AdvancedTask.Data
 {
-    public class LanguageDataHelper
+    public class SkillsDataHelper
     {
-        public static List<LanguageData> ReadLanguageData(string jsonFileName)
+        public static List<SkillsData> ReadSkillsData(string jsonFileName)
         {
             string currentDirectory = TestContext.CurrentContext.TestDirectory;
             string filePath = Path.Combine(currentDirectory, "Data", jsonFileName);
             string jsonContent = File.ReadAllText(filePath);
 
-            return JsonConvert.DeserializeObject<List<LanguageData>>(jsonContent) ?? new List<LanguageData>();
+            return JsonConvert.DeserializeObject<List<SkillsData>>(jsonContent) ?? new List<SkillsData>();
         }
     }
 }

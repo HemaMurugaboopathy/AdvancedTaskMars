@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedTask.Utilities
 {
@@ -32,7 +27,6 @@ namespace AdvancedTask.Utilities
             //Specify the path and filename for the screenshot with a timestamp
             string filepath = "D:\\Hema\\IndustryConnect\\Internship\\AdvancedTask\\Screenshot";
             string screenshotPath = Path.Combine(filepath, $"{screenshotName}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
-            //screenshot.SaveAsFile(screenshotPath);
 
             // Ensure the directory exists before saving the screenshot
             Directory.CreateDirectory(filepath);

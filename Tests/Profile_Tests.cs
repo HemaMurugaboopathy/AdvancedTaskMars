@@ -2,11 +2,6 @@
 using AdvancedTask.Pages;
 using AdvancedTask.Utilities;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedTask.Tests
 {
@@ -40,12 +35,7 @@ namespace AdvancedTask.Tests
             profileData profileData = ProfileDataHelper
                .ReadProfileData(@"addProfileData.json")
                .FirstOrDefault(x => x.Id == id);
-            profilePageObj.Add_Profile(profileData);
-
-            // Get the actual message from the profilePageObj
-            //string actualMessage = profilePageObj.getMessage();
-
-           
+            profilePageObj.Add_Profile(profileData);      
         }
         public void ProfileTearDown()
         {

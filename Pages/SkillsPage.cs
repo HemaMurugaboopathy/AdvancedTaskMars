@@ -52,14 +52,7 @@ namespace AdvancedTask.Pages
             public void Create_SkillsPage(SkillsData skillsData)
             {
 
-            Thread.Sleep(2000);
-            
-            //Navigate to skills page
-            IWebElement SkillsOption = driver.FindElement(By.XPath("//a[text()='Skills']"));
-            SkillsOption.Click();
-            Thread.Sleep(4000);   
-
-                //Create add new button
+                  //Create add new button
                 AddNewButtonElement.Click();
 
                 //Enter skill in place holder
@@ -88,12 +81,6 @@ namespace AdvancedTask.Pages
             public void Edit_SkillsPage(SkillsData existingSkillsData, SkillsData newSkillsData)
             {
 
-            Thread.Sleep(2000);
-
-            //Navigate to skills page
-            IWebElement SkillsOption = driver.FindElement(By.XPath("//a[text()='Skills']"));
-            SkillsOption.Click();
-            Thread.Sleep(6000);
             //Click the edit icon that needs to be updated
             IWebElement EditButton = driver.FindElement(By.XPath($"//div[@data-tab='second']//tr[td[1]='{existingSkillsData.Skills}' and td[2]='{existingSkillsData.SkillLevel}']//td[last()]/span[1]"));
             EditButton.Click();
@@ -124,7 +111,6 @@ namespace AdvancedTask.Pages
                 }
             }
 
-
         public string getCancel()
         {
             try
@@ -137,26 +123,19 @@ namespace AdvancedTask.Pages
             }
         }
         public void Delete_SkillsPage(SkillsData existingSkillsData)
-            {
-
-            Thread.Sleep(2000);
-
-            //Navigate to skills page
-            IWebElement SkillsOption = driver.FindElement(By.XPath("//a[text()='Skills']"));
-            SkillsOption.Click();
+        {
             Thread.Sleep(6000);
             string xpath = $@"//div[@data-tab='second']//tr[td[1]='{existingSkillsData.Skills}' and td[2]='{existingSkillsData.SkillLevel}']//td[last()]/span[2]";
 
             IWebElement deleteIcon = driver.FindElement(By.XPath(xpath));
             deleteIcon.Click();
         }
-            public string getMessage()
-            {
-                Wait.WaitToExist(driver, "XPath", "//div[@class='ns-box-inner']", 2);
+        public string getMessage()
+        {
+             Wait.WaitToExist(driver, "XPath", "//div[@class='ns-box-inner']", 2);
 
-                //Get the text message after entering skill and skill level
-                return SuccessMessageElement.Text;
-            }
-        
+             //Get the text message after entering skill and skill level
+             return SuccessMessageElement.Text;
+        }     
     }
 }
