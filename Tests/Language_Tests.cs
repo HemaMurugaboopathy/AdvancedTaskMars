@@ -32,7 +32,7 @@ namespace AdvancedTask.Tests
         [Test, Order(1), Description("Deleting all records before entering any details")]
         public void Delete_All()
         {
-            addEditDeleteLanguageComponent.Delete_All();
+            addEditDeleteLanguageComponent.Delete_All_Records();
         }
 
         [Test, Order(2), Description("This test is creating a new languaage")]
