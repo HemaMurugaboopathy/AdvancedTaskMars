@@ -1,10 +1,5 @@
-﻿using AdvancedTask.Data;
-using AdvancedTask.Pages;
-using AdvancedTask.Pages.Components.ProfileAboutMe;
-using AdvancedTask.Steps;
+﻿using AdvancedTask.Steps;
 using AdvancedTask.Utilities;
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 
 namespace AdvancedTask.Tests
@@ -26,8 +21,7 @@ namespace AdvancedTask.Tests
         {
             //Login page object initialization and definition
             loginPageSteps.SigninActions();
-            loginPageSteps.LoginActions();
-       
+            loginPageSteps.LoginActions();       
         }
  
         [Test, Order(1), Description("Updating availability details")]
@@ -35,7 +29,7 @@ namespace AdvancedTask.Tests
         public void Edit_Availability(int id)
         {
             profilePageSteps.editAvailability(id);
-         }
+        }
 
         [Test, Order(2), Description("Updating hours details")]
         [TestCase(1)]

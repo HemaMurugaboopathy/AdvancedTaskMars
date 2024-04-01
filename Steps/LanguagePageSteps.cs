@@ -2,7 +2,6 @@
 using AdvancedTask.Data;
 using AdvancedTask.Pages.Components;
 using AdvancedTask.Utilities;
-using NUnit.Framework;
 
 namespace AdvancedTask.Steps
 {

@@ -1,10 +1,4 @@
-﻿using AdvancedTask.Pages;
-using AdvancedTask.Pages.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AdvancedTask.Pages.Components;
 
 namespace AdvancedTask.Steps
 {

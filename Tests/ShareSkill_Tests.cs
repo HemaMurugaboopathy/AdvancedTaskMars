@@ -1,10 +1,6 @@
-﻿using AdvancedTask.Data;
-using AdvancedTask.Pages;
-using AdvancedTask.Pages.Components;
+﻿using AdvancedTask.Pages.Components;
 using AdvancedTask.Steps;
 using AdvancedTask.Utilities;
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 
 namespace AdvancedTask.Tests

@@ -3,11 +3,6 @@ using AdvancedTask.Data;
 using AdvancedTask.Pages;
 using AdvancedTask.Pages.Components;
 using AdvancedTask.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedTask.Steps
 {
@@ -41,10 +36,6 @@ namespace AdvancedTask.Steps
             shareSkillOverviewComponent.clickUpdateButton(existingShareSkillData);
             addEditShareSkillComponent.Edit_ShareSkill(newShareSkillData);
             shareSkillOverviewComponent.clickManageListings(); 
-            //String acutalSuccessMessage = addEditShareSkillComponent.getMessage();
-            //string expected = "Service listing has been updated";
-            //ShareSkillAssertHelper.assertAddShareSkillSuccessMessage(expected, acutalSuccessMessage);
-
         }
         public void Delete_ShareSkill(int id)
         {
@@ -54,7 +45,6 @@ namespace AdvancedTask.Steps
             String actualMessage = addEditShareSkillComponent.getMessage();
             string expected = @".* has been deleted *";
             ShareSkillAssertHelper.assertDeleteShareSkillSuccessMessage(expected, actualMessage);
-
         }
     }
 }

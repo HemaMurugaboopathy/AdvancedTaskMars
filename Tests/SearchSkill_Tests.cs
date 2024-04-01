@@ -1,7 +1,5 @@
 ﻿using AdvancedTask.Steps;
 using AdvancedTask.Utilities;
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 
 namespace AdvancedTask.Tests

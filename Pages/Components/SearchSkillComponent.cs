@@ -1,5 +1,4 @@
 ﻿using AdvancedTask.Utilities;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using OpenQA.Selenium;
 
 namespace AdvancedTask.Pages

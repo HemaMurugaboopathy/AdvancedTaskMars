@@ -2,12 +2,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedTask.Pages.Components
 {
@@ -52,7 +46,7 @@ namespace AdvancedTask.Pages.Components
 
             //Click login to enter
             loginButton.Click();
-            }
-        }
+         }
+     }
 }
 

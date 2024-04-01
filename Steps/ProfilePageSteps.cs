@@ -15,8 +15,8 @@ namespace AdvancedTask.Steps
         }
 
         public void editAvailability(int id)
-        {
-            profileData profileData = ProfileDataHelper.ReadProfileData(@"addProfileData.json").FirstOrDefault(x => x.Id == id);
+        {           
+            profileData profileData = JsonReader.loadData<profileData>(@"addProfileData.json").FirstOrDefault(x => x.Id == id);
             ProfileComponent.Edit_Availability(profileData);
             String acutalSuccessMessage = ProfileComponent.getMessage();
             string expected = "Availability updated";
@@ -24,7 +24,7 @@ namespace AdvancedTask.Steps
         }
         public void editHour(int id)
         {
-            profileData profileData = ProfileDataHelper.ReadProfileData(@"addProfileData.json").FirstOrDefault(x => x.Id == id);
+            profileData profileData = JsonReader.loadData<profileData>(@"addProfileData.json").FirstOrDefault(x => x.Id == id);
             ProfileComponent.Edit_Hours(profileData);
             String acutalSuccessMessage = ProfileComponent.getMessage();
             string expected = "Availability updated";
@@ -32,13 +32,11 @@ namespace AdvancedTask.Steps
         }
         public void editEarnTarget(int id)
         {
-            profileData profileData = ProfileDataHelper.ReadProfileData(@"addProfileData.json").FirstOrDefault(x => x.Id == id);
+            profileData profileData = JsonReader.loadData<profileData>(@"addProfileData.json").FirstOrDefault(x => x.Id == id);
             ProfileComponent.Edit_EarnTarget(profileData);
             String acutalSuccessMessage = ProfileComponent.getMessage();
             string expected = "Availability updated";
             ProfileAssertHelper.assertProfileSuccessMessage(expected, acutalSuccessMessage);
         }
-
-
     }
 }

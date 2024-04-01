@@ -26,7 +26,7 @@ namespace AdvancedTask.Pages.Components
         {
             try
             {
-                Wait.WaitToExist(driver, "XPath", $"//div[@data-tab='first']//tr[td[1]='{existingLanguage}' and td[2]='{existingLanguageLevel}']//td[last()]/span[1]", 8);
+                Wait.WaitToExist(driver, "XPath", $"//div[@data-tab='first']//tr[td[1]='{existingLanguage}' and td[2]='{existingLanguageLevel}']//td[last()]/span[1]", 15);
                 UpdateButton = driver.FindElement(By.XPath($"//div[@data-tab='first']//tr[td[1]='{existingLanguage}' and td[2]='{existingLanguageLevel}']//td[last()]/span[1]"));
             }
             catch (Exception ex)

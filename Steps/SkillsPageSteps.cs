@@ -2,7 +2,6 @@
 using AdvancedTask.Data;
 using AdvancedTask.Pages.Components;
 using AdvancedTask.Utilities;
-using NUnit.Framework;
 
 namespace AdvancedTask.Steps
 {
@@ -14,19 +13,17 @@ namespace AdvancedTask.Steps
 
         public SkillsPageSteps()
         {
-
             ProfileSkillsComponent = new ProfileSkillsComponent();
             addEditSkillComponent = new AddEditSkillComponent();
         }
 
         public void Delete_All_Records()
         {
-
             addEditSkillComponent.Delete_All_Records();
         }
         public void Add_Skills(int id)
         {
-            // Read education data from the specified JSON file and retrieve the first item with a matching Id
+            // Read skills data from the specified JSON file and retrieve the first item with a matching Id
             SkillsData skillsData = JsonReader.loadData<SkillsData>(@"addSkillsData.json").FirstOrDefault(x => x.Id == id);
 
             ProfileSkillsComponent.Click_AddSkills();
@@ -34,11 +31,10 @@ namespace AdvancedTask.Steps
             String acutalSuccessMessage = addEditSkillComponent.getMessage();
             string expected = @".* has been added to your skills.*";
             SkillsAssertHelper.assertAddSkillsSuccessMessage(expected, acutalSuccessMessage);
-
         }
         public void Add_SkillsSpecial(int id)
         {
-            // Read education data from the specified JSON file and retrieve the first item with a matching Id
+            // Read skills data from the specified JSON file and retrieve the first item with a matching Id
             SkillsData skillsData = JsonReader.loadData<SkillsData>(@"addSkillsData.json").FirstOrDefault(x => x.Id == id);
 
             ProfileSkillsComponent.Click_AddSkills();
@@ -47,11 +43,10 @@ namespace AdvancedTask.Steps
             String acutalSuccessMessage = addEditSkillComponent.getMessage();
             string expected = @".* has been added to your skills.*";
             SkillsAssertHelper.assertAddSkillsSuccessMessage(expected, acutalSuccessMessage);
-
         }
         public void Add_SkillsMoreCharacters(int id)
         {
-            // Read education data from the specified JSON file and retrieve the first item with a matching Id
+            // Read skills data from the specified JSON file and retrieve the first item with a matching Id
             SkillsData skillsData = JsonReader.loadData<SkillsData>(@"addSkillsData.json").FirstOrDefault(x => x.Id == id);
 
             ProfileSkillsComponent.Click_AddSkills();
@@ -69,7 +64,6 @@ namespace AdvancedTask.Steps
             String acutalSuccessMessage = addEditSkillComponent.getMessage();
             string expected = "Please enter skill and experience level"; // Update this to the expected message    
             SkillsAssertHelper.assertAddEmptySkillsSuccessMessage(expected, acutalSuccessMessage);
-
         }
         public void Edit_Skills(int id)
         {
@@ -80,14 +74,12 @@ namespace AdvancedTask.Steps
             String acutalSuccessMessage = addEditSkillComponent.getMessage();
             string expected = @".* has been updated to your skills.*";
             SkillsAssertHelper.assertAddSkillsSuccessMessage(expected, acutalSuccessMessage);
-
         }
 
         public void Cancel_Skills()
         {
             ProfileSkillsComponent.Click_AddSkills();
             addEditSkillComponent.getCancel();
-
         }
 
         public void Delete_Skills(int id)
@@ -97,7 +89,6 @@ namespace AdvancedTask.Steps
             String acutalSuccessMessage = addEditSkillComponent.getMessage();
             string expected = @".* has been deleted*";
             SkillsAssertHelper.assertDeleteSkillsSuccessMessage(expected, acutalSuccessMessage);
-
         }
         public void getMessage()
         {

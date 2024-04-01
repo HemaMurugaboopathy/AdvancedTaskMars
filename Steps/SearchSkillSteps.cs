@@ -15,15 +15,13 @@ namespace AdvancedTask.Steps
         public void SearchSkill_ByCategory()
         {
             searchSkillComponent.Click_SearchIcon();
-            searchSkillComponent.SearchSkill_ByCategory();
- 
+            searchSkillComponent.SearchSkill_ByCategory(); 
         }
         public void SearchSkill_BySubCategory()
         {
             searchSkillComponent.Click_SearchIcon();
             searchSkillComponent.SearchSkill_ByCategory();
             searchSkillComponent.SearchSkill_BySubCategory();
-
         }
  
         public void SearchSkill_ByFilter()
